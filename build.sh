@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
+# build.sh
 
-# Aplica migrações do banco de dados (SQLite no seu caso)
+# Instala as dependências
+pip install -r requirements.txt
+
+# Aplica as migrações
 python manage.py migrate
 
-# Coleta arquivos estáticos (CSS, JS, imagens...)
+# Coleta os arquivos estáticos
 python manage.py collectstatic --noinput
