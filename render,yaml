@@ -1,15 +1,15 @@
 services:
   - type: web
-    name: django1
+    name: Estoque_Django
     env: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn django1.wsgi:application"
+    startCommand: "gunicorn Estoque_Django.wsgi:application"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: django1.settings
+        value: Estoque_Django.settings
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
         value: False
       - key: ALLOWED_HOSTS
-        value: django1.onrender.com
+        value: Estoque_Django.onrender.com
