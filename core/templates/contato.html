@@ -1,0 +1,131 @@
+{% load static %}
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contato</title>
+    <link rel="stylesheet" href="{% static 'css/contato.css' %}">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="recipiente">
+            <nav class="navegacao-principal">
+                <ul class="lista-navegacao">
+                    <li class="item-navegacao"><a href="{% url 'index' %}" class="link-navegacao">Página Inicial</a></li>
+                    <li class="item-navegacao ativo"><a href="#" class="link-navegacao">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="conteudo-principal">
+        <section class="secao-contato">
+            <div class="recipiente">
+                <div class="involvimento-contato">
+                    <h1 class="titulo-secao">Entre em Contato</h1>
+                    <p class="descricao-secao">Preencha o formulário abaixo e entraremos em contato o mais breve possível.</p>
+                    
+                    <div class="recipiente-contato">
+                        <div class="recipiente-formulario-contato">
+                            <form method="post" class="formulario-contato" action="">
+                                {% csrf_token %}
+                                
+                                <div class="grupo-formulario">
+                                    <label for="nome">Nome completo *</label>
+                                    <input type="text" id="nome" name="nome" class="controle-formulario" required>
+                                </div>
+                                
+                                <div class="grupo-formulario">
+                                    <label for="email">E-mail *</label>
+                                    <input type="email" id="email" name="email" class="controle-formulario" required>
+                                </div>
+                                
+                                <div class="grupo-formulario">
+                                    <label for="telefone">Telefone</label>
+                                    <input type="tel" id="telefone" name="telefone" class="controle-formulario">
+                                </div>
+                                
+                                <div class="grupo-formulario">
+                                    <label for="assunto">Assunto *</label>
+                                    <input type="text" id="assunto" name="assunto" class="controle-formulario" required>
+                                </div>
+                                
+                                <div class="grupo-formulario">
+                                    <label for="mensagem">Mensagem *</label>
+                                    <textarea id="mensagem" name="mensagem" class="controle-formulario" rows="6" required></textarea>
+                                </div>
+                                
+                                <div class="grupo-formulario rodape-formulario">
+                                    <p class="campos-obrigatorios">* Campos obrigatórios</p>
+                                    <button type="submit" class="botao-enviar">Enviar mensagem</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="info-contato">
+                            <div class="cartao-info">
+                                <h3 class="titulo-info">Informações de Contato</h3>
+                                <ul class="lista-info">
+                                    <li class="item-info">
+                                        <span class="rotulo-info">E-mail:</span>
+                                        <span class="valor-info">contato@empresa.com</span>
+                                    </li>
+                                    <li class="item-info">
+                                        <span class="rotulo-info">Telefone:</span>
+                                        <span class="valor-info">(11) 1234-5678</span>
+                                    </li>
+                                    <li class="item-info">
+                                        <span class="rotulo-info">WhatsApp:</span>
+                                        <span class="valor-info">(11) 98765-4321</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="cartao-info">
+                                <h3 class="titulo-info">Endereço</h3>
+                                <address class="endereco">
+                                    Av. Exemplo, 1000<br>
+                                    Bairro Exemplo<br>
+                                    São Paulo - SP<br>
+                                    CEP: 01234-567
+                                </address>
+                            </div>
+                            
+                            <div class="cartao-info">
+                                <h3 class="titulo-info">Horário de Atendimento</h3>
+                                <ul class="lista-horarios">
+                                    <li>Segunda a Sexta: 9h às 18h</li>
+                                    <li>Sábados: 9h às 13h</li>
+                                    <li>Domingos e Feriados: Fechado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="recipiente">
+            <div class="conteudo-rodape">
+                <div class="navegacao-rodape">
+                    <ul class="links-rodape">
+                        <li><a href="{% url 'index' %}">Página Inicial</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="copia-rodape">
+                    <p>&copy; {% now "Y" %} Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

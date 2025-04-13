@@ -1,0 +1,47 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django 1</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="recipiente">
+            <nav class="navegacao-principal">
+                <ul class="lista-navegacao">
+                    <li class="item-navegacao ativo"><a href="{% url 'index' %}" class="link-navegacao">Página Inicial</a></li>
+                    <li class="item-navegacao "><a href="{% url 'contato'%}" class="link-navegacao">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+     
+    <center>
+        <img src="{% static 'images/django.png' %}" alt="Icone Django">
+        <h2>{{ curso }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td width="200px"> <h1>Produto</h1></td>
+                    <td width="200px"> <h1>Preco</h1></td>
+                    <td width="200px"><h1>Estoque</h1></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                    <tr>
+                        <td><a href="{% url 'produto' produto.id %}">{{ produto.nome }}</a></td>
+                        <td><p>{{ produto.preco }}</p></td>
+                        <td><p>{{ produto.estoque }}</p></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input class="botao" type="button" value="Verificar" onclick="teste()">
+        <script src="{% static 'js/principal.js' %}"></script>
+    </center>
+</body>
+</html>

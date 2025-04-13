@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <center>
+        <a href="{% url 'index' %}"><img src="{% static 'images/django.png' %}" alt="Icone Django" width="200px"></a>
+
+        <h1>{{produto.nome}}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td width="200px"> <h1>Produto</h1></td>
+                    <td width="200px"> <h1>Preco</h1></td>
+                    <td width="200px"><h1>Estoque</h1></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ produto.nome }}</a></td>
+
+                    <td>{{ produto.preco }}</td>
+                    <td>{{ produto.estoque }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </center>
+
+</body>
+</html>
